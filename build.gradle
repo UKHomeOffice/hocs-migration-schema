@@ -23,4 +23,11 @@ dependencies {
     testImplementation 'com.jayway.jsonpath:json-path:2.7.0'
 }
 
-
+publishing {
+    publications {
+        hocsMigrationSchema(MavenPublication) {
+            from components.java
+            artifactId = 'hocs-migration-schema'
+        }
+    }
+}
