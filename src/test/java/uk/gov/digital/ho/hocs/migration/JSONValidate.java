@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
@@ -30,6 +31,21 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void exceedStringMaxLengths() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-case-data.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.case.caseData[1]: there must be a maximum of 2 items in the array");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
     private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         byte[] jsonBytes = jsonStream.readAllBytes();
         JsonNode json = objectMapper.readTree(jsonBytes);
@@ -45,6 +61,21 @@ public class JSONValidate {
         }
     }
 
+    private boolean checkForValidationMessage (Set<ValidationMessage> validationMessages, Set<String> expectedMessages){
+        for (String expectedMessage : expectedMessages){
+            if (validationMessages.stream().noneMatch(o -> o.getMessage().equals(expectedMessage))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private Set<ValidationMessage> testSchemaInvalid(InputStream schemaStream, InputStream jsonStream) throws IOException {
+        JsonNode json = objectMapper.readTree(jsonStream);
+        JsonSchema schema = schemaFactory.getSchema(schemaStream);
+        return schema.validate(json);
+
+    }
     private static InputStream inputStreamFromClasspath(String path) {
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
     }
