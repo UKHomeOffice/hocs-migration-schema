@@ -22,7 +22,7 @@ public class JSONValidate {
     private final JsonSchemaFactory schemaFactory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V4);
 
     @Test
-    public void existing() throws Exception {
+    public void testCaseValidMessage() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/cms.json")
