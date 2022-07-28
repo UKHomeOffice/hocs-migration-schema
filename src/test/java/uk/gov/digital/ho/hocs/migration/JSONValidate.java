@@ -44,24 +44,7 @@ public class JSONValidate {
             fail();
         }
     }
-
-    private Set<ValidationMessage> testSchemaInvalid(InputStream schemaStream, InputStream jsonStream) throws IOException {
-        JsonNode json = objectMapper.readTree(jsonStream);
-        JsonSchema schema = schemaFactory.getSchema(schemaStream);
-        return schema.validate(json);
-
-    }
-
-    private boolean checkForValidationMessage (Set<ValidationMessage> validationMessages, Set<String> expectedMessages){
-        for (String expectedMessage : expectedMessages){
-            if (validationMessages.stream().noneMatch(o -> o.getMessage().equals(expectedMessage))){
-                return false;
-            }
-        }
-        return true;
-    }
-
-
+    
     private static InputStream inputStreamFromClasspath(String path) {
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
     }
