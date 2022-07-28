@@ -25,9 +25,21 @@ dependencies {
 
 publishing {
     publications {
-        hocsMigrationSchema(MavenPublication) {
+        hocsUkviComplaintSchema(MavenPublication) {
             from components.java
             artifactId = 'hocs-migration-schema'
+        }
+    }
+
+    repositories {
+        maven {
+            name = "hocs-migration-schema"
+            description = 'The JSON schema for the DECS migration schema'
+            url = 'https://maven.pkg.github.com/UKHomeOffice/hocs-migration-schema'
+            credentials {
+                username = "Anonymous"
+                password = System.getenv("PACKAGE_TOKEN")
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ public class JSONValidate {
             fail();
         }
     }
-    
+
     private static InputStream inputStreamFromClasspath(String path) {
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
     }
