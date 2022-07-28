@@ -32,7 +32,7 @@ public class JSONValidate {
     }
 
     @Test
-    public void exceedStringMaxLengths() throws Exception {
+    public void testInvalidCaseData() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-case-data.json")
