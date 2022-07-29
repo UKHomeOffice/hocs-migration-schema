@@ -22,7 +22,7 @@ jobs:
           default_use_head_tag: ${{ github.base_ref == 'main' }}
       - name: Post failure to Slack channel
         id: slack
-        uses: slackapi/slack-github-action@v1.19.0
+        uses: slackapi/slack-github-action@v1.21.0
         if: ${{ failure() && steps.*.conclusion == 'failure' }}
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
