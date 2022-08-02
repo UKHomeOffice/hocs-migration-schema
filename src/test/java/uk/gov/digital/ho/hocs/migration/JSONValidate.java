@@ -40,7 +40,9 @@ public class JSONValidate {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
 
             Set<String> expectedMessages = new HashSet<>();
-            expectedMessages.add("$.caseDetails.caseData[1]: there must be a maximum of 2 items in the array");
+            expectedMessages.add("$.caseDetails.additionalField: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.caseDetails.caseData[0].value: integer found, string expected");
+            expectedMessages.add("$.caseDetails.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }

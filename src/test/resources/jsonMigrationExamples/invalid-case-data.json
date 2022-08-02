@@ -8,9 +8,10 @@
     "caseStatus": "tempor veniam ut laboris nulla",
     "caseStatusDate": "1947-02-14",
     "creationDate": "1965-06-22",
+    "additionalField": "this is invalid",
     "caseData": [
-      ["type", "cms"],
-      ["creationDate", "01/07/2022", "third data item"]
+      {"name": "type", "value": 1600},
+      {"name": "creationDate", "value": "01/07/2022", "third": "not allowed"}
     ],
     "caseAttachments": [
       {
