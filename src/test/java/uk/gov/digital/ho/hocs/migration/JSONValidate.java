@@ -65,6 +65,9 @@ public class JSONValidate {
     }
 
     private boolean checkForValidationMessage (Set<ValidationMessage> validationMessages, Set<String> expectedMessages){
+        if (validationMessages.size() != expectedMessages.size()) {
+            return false;
+        }
         for (String expectedMessage : expectedMessages){
             if (validationMessages.stream().noneMatch(o -> o.getMessage().equals(expectedMessage))){
                 return false;
