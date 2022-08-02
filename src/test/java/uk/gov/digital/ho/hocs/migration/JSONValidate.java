@@ -40,7 +40,7 @@ public class JSONValidate {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
 
             Set<String> expectedMessages = new HashSet<>();
-            expectedMessages.add("$.case.caseData[1]: there must be a maximum of 2 items in the array");
+            expectedMessages.add("$.caseDetails.caseData[1]: there must be a maximum of 2 items in the array");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }

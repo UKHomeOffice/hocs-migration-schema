@@ -51,7 +51,7 @@
         ]
       }
     },
-    "case": {
+    "caseDetails": {
       "description": "All the data for a case",
       "type": "object",
       "required": [
@@ -110,17 +110,17 @@
   "type": "object",
   "required": [
     "messageType",
-    "case"
+    "caseDetails"
   ],
   "additionalProperties": false,
   "properties": {
     "messageType": {
       "type":"string"
     },
-    "case": {
+    "caseDetails": {
       "anyOf" : [
         {
-        "$ref": "#/definitions/case"
+        "$ref": "#/definitions/caseDetails"
         }
       ]
     }
