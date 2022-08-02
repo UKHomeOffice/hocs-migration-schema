@@ -40,10 +40,10 @@ public class JSONValidate {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
 
             Set<String> expectedMessages = new HashSet<>();
-            expectedMessages.add("$.caseDetails.additionalField: is not defined in the schema and the schema does not allow additional properties");
-            expectedMessages.add("$.caseDetails.caseData[0].value: integer found, string expected");
-            expectedMessages.add("$.caseDetails.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
-            expectedMessages.add("$.caseDetails.caseData[2].forth: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.caseData[0].value: integer found, string expected");
+            expectedMessages.add("$.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.caseData[2].forth: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.additionalField: is not defined in the schema and the schema does not allow additional properties");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }

@@ -50,77 +50,57 @@
           }
         ]
       }
-    },
-    "caseDetails": {
-      "description": "All the data for a case",
-      "type": "object",
-      "required": [
-        "caseType",
-        "sourceCaseId",
-        "correspondentName",
-        "correspondenceEmail",
-        "caseStatus",
-        "caseStatusDate",
-        "creationDate",
-        "caseData",
-        "caseAttachments"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "caseType": {
-          "type":"string"
-        },
-        "sourceCaseId": {
-          "type":"string"
-        },
-        "correspondentName": {
-          "type":"string"
-        },
-        "correspondenceEmail": {
-          "type":"string"
-        },
-        "caseStatus": {
-          "type":"string"
-        },
-        "caseStatusDate": {
-          "type":"string",
-          "format": "date"
-        },
-        "creationDate": {
-          "type": "string",
-          "format": "date"
-        },
-        "caseData": {
-          "anyOf" : [
-            {
-            "$ref": "#/definitions/caseData"
-            }
-          ]
-        },
-        "caseAttachments": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/caseAttachments"
-            }
-          ]
-        }
-      }
     }
   },
+  "description": "All the data for a case",
   "type": "object",
   "required": [
-    "messageType",
-    "caseDetails"
+    "caseType",
+    "sourceCaseId",
+    "correspondentName",
+    "correspondenceEmail",
+    "caseStatus",
+    "caseStatusDate",
+    "creationDate",
+    "caseData",
+    "caseAttachments"
   ],
   "additionalProperties": false,
   "properties": {
-    "messageType": {
+    "caseType": {
       "type":"string"
     },
-    "caseDetails": {
+    "sourceCaseId": {
+      "type":"string"
+    },
+    "correspondentName": {
+      "type":"string"
+    },
+    "correspondenceEmail": {
+      "type":"string"
+    },
+    "caseStatus": {
+      "type":"string"
+    },
+    "caseStatusDate": {
+      "type":"string",
+      "format": "date"
+    },
+    "creationDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "caseData": {
       "anyOf" : [
         {
-        "$ref": "#/definitions/caseDetails"
+          "$ref": "#/definitions/caseData"
+        }
+      ]
+    },
+    "caseAttachments": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/caseAttachments"
         }
       ]
     }
