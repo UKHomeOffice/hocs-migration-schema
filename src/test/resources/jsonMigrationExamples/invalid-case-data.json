@@ -11,7 +11,8 @@
     "additionalField": "this is invalid",
     "caseData": [
       {"name": "type", "value": 1600},
-      {"name": "creationDate", "value": "01/07/2022", "third": "not allowed"}
+      {"name": "creationDate", "value": "01/07/2022", "third": "not allowed"},
+      {"forth":  "not allowed"}
     ],
     "caseAttachments": [
       {

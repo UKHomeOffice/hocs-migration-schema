@@ -43,6 +43,7 @@ public class JSONValidate {
             expectedMessages.add("$.caseDetails.additionalField: is not defined in the schema and the schema does not allow additional properties");
             expectedMessages.add("$.caseDetails.caseData[0].value: integer found, string expected");
             expectedMessages.add("$.caseDetails.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.caseDetails.caseData[2].forth: is not defined in the schema and the schema does not allow additional properties");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
