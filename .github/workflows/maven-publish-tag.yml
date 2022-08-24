@@ -1,0 +1,8 @@
+name: 'Semver Tag'
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  tag:
+    uses: UKHomeOffice/hocs-github-actions/.github/workflows/maven-publish-tag-gradle.yml@v2
