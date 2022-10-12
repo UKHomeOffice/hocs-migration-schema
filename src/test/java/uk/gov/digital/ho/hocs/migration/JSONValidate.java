@@ -35,10 +35,9 @@ public class JSONValidate {
     public void testInvalidCaseData() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-case-data-migration-message.json")
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-incorrect-case-data.json")
         ) {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
-            System.out.println(validationMessages.toString());
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.caseData[0].value: integer found, string expected");
             expectedMessages.add("$.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
@@ -46,6 +45,69 @@ public class JSONValidate {
             expectedMessages.add("$.additionalField: is not defined in the schema and the schema does not allow additional properties");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    @Test
+    public void testMissingPrimaryCorrespondent() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-primary-correspondent.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.primaryCorrespondent: is missing but it is required");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    @Test
+    public void testMultiplePrimaryCorrespondents() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-multiple-primary-correspondents.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            System.out.println(validationMessages.toString());
+            fail();
+//            Set<String> expectedMessages = new HashSet<>();
+//            expectedMessages.add("$.primaryCorrespondent: is missing but it is required");
+
+//            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    @Test
+    public void testMissingMandatoryFieldsForPrimaryCorrespondents() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-mandatory-fields-primary-correspondent.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            System.out.println(validationMessages.toString());
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.primaryCorrespondent.fullName: is missing but it is required");
+            expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    @Test
+    public void testMissingMandatoryFieldsForOtherCorrespondents() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-mandatory-fields-other-correspondents.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            System.out.println(validationMessages.toString());
+//            Set<String> expectedMessages = new HashSet<>();
+//            expectedMessages.add("$.primaryCorrespondent.fullName: is missing but it is required");
+//            expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
+//
+//            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+            fail();
         }
     }
 
