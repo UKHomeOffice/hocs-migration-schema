@@ -50,15 +50,69 @@
           }
         ]
       }
+    },
+    "correspondent" : {
+      "description": "A single correspondent",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "correspondentType":  {
+          "type": "string"
+        },
+        "address1":  {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "address3": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "organisation": {
+          "type": "string"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fullName",
+        "correspondentType"
+      ]
+    },
+    "otherCorrespondents": {
+      "description": "Other correspondents",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/correspondent"
+          }
+        ]
+      }
     }
+
   },
   "description": "All the data for a case",
   "type": "object",
   "required": [
     "caseType",
     "sourceCaseId",
-    "correspondentName",
-    "correspondenceEmail",
+    "primaryCorrespondent",
     "caseStatus",
     "caseStatusDate",
     "creationDate",
@@ -73,12 +127,22 @@
     "sourceCaseId": {
       "type":"string"
     },
-    "correspondentName": {
-      "type":"string"
+    "primaryCorrespondent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/correspondent"
+        }
+      ]
     },
-    "correspondenceEmail": {
-      "type":"string"
-    },
+    "otherCorrespondents": [
+      {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/otherCorrespondents"
+          }
+        ]
+      }
+    ],
     "caseStatus": {
       "type":"string"
     },
