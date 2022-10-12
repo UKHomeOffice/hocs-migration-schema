@@ -72,7 +72,7 @@ public class JSONValidate {
             System.out.println(validationMessages.toString());
             fail();
 //            Set<String> expectedMessages = new HashSet<>();
-//            expectedMessages.add("$.primaryCorrespondent: is missing but it is required");
+//            expectedMessages.add("");
 
 //            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
@@ -103,9 +103,8 @@ public class JSONValidate {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
             System.out.println(validationMessages.toString());
 //            Set<String> expectedMessages = new HashSet<>();
-//            expectedMessages.add("$.primaryCorrespondent.fullName: is missing but it is required");
-//            expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
-//
+//            expectedMessages.add("");
+
 //            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
             fail();
         }

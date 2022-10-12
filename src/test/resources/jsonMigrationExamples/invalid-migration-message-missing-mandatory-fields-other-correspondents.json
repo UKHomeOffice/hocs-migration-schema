@@ -20,6 +20,7 @@
         "address2": "address2",
         "address3": "address3",
         "postcode": "postcode",
+        "dfdfd": "dfddfd",
         "country": "country",
         "organisation": "organisation",
         "telephone": "telephone",
@@ -29,6 +30,30 @@
       {
         "fullName": "fullName",
         "correspondentType": "COMPLAINT",
+        "address1": "address1",
+        "address2": "address2",
+        "address3": "address3",
+        "postcode": "postcode",
+        "country": "country",
+        "organisation": "organisation",
+        "telephone": "telephone",
+        "email": "email",
+        "reference": "reference"
+      },
+      {
+        "correspondentType": "COMPLAINT",
+        "address1": "address1",
+        "address2": "address2",
+        "address3": "address3",
+        "postcode": "postcode",
+        "country": "country",
+        "organisation": "organisation",
+        "telephone": "telephone",
+        "email": "email",
+        "reference": "reference"
+      },
+      {
+        "fullName": "fullName",
         "address1": "address1",
         "address2": "address2",
         "address3": "address3",
