@@ -25,7 +25,7 @@ public class JSONValidate {
     public void testCaseValidMessage() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/cms.json")
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message.json")
         ) {
             testSchemaValid(schemaStream, jsonStream);
         }
@@ -35,10 +35,10 @@ public class JSONValidate {
     public void testInvalidCaseData() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-case-data.json")
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-case-data-migration-message.json")
         ) {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
-
+            System.out.println(validationMessages.toString());
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.caseData[0].value: integer found, string expected");
             expectedMessages.add("$.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
