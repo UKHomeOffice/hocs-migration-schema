@@ -98,11 +98,14 @@
       "description": "Other correspondents",
       "type": "array",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/correspondent"
-          }
-        ]
+        "$ref": "#/definitions/correspondent"
+      }
+    },
+    "primaryCorrespondent": {
+      "description": "Primary correspondent",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/correspondent"
       }
     }
   },
