@@ -63,22 +63,6 @@ public class JSONValidate {
     }
 
     @Test
-    public void testMultiplePrimaryCorrespondents() throws Exception {
-        try (
-                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-multiple-primary-correspondents.json")
-        ) {
-            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
-            System.out.println(validationMessages.toString());
-            fail();
-//            Set<String> expectedMessages = new HashSet<>();
-//            expectedMessages.add("");
-
-//            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
-        }
-    }
-
-    @Test
     public void testMissingMandatoryFieldsForPrimaryCorrespondents() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
@@ -91,22 +75,6 @@ public class JSONValidate {
             expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
-        }
-    }
-
-    @Test
-    public void testMissingMandatoryFieldsForOtherCorrespondents() throws Exception {
-        try (
-                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
-                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-mandatory-fields-other-correspondents.json")
-        ) {
-            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
-            System.out.println(validationMessages.toString());
-//            Set<String> expectedMessages = new HashSet<>();
-//            expectedMessages.add("");
-
-//            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
-            fail();
         }
     }
 
