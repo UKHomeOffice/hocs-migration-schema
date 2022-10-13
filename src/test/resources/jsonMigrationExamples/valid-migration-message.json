@@ -3,7 +3,7 @@
     "sourceCaseId": "sourceCaseId",
     "primaryCorrespondent": {
       "fullName": "fullName",
-      "correspondentType": "COMPLAINT",
+      "correspondentType": "COMPLAINANT",
       "address1": "address1",
       "address2": "address2",
       "address3": "address3",
@@ -17,7 +17,7 @@
     "otherCorrespondents": [
       {
         "fullName": "fullName",
-        "correspondentType": "COMPLAINT",
+        "correspondentType": "COMPLAINANT",
         "address1": "address1",
         "address2": "address2",
         "address3": "address3",
@@ -30,7 +30,7 @@
       },
       {
         "fullName": "fullName",
-        "correspondentType": "COMPLAINT",
+        "correspondentType": "COMPLAINANT",
         "address1": "address1",
         "address2": "address2",
         "address3": "address3",

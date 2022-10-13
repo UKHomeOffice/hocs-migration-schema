@@ -3,7 +3,7 @@
     "sourceCaseId": "in",
     "primaryCorrespondent": {
       "fullName": "fullName",
-      "correspondentType": "COMPLAINT",
+      "correspondentType": "COMPLAINANT",
       "address1": "address1",
       "address2": "address2",
       "address3": "address3",
@@ -14,7 +14,7 @@
       "email": "email",
       "reference": "reference"
     },
-    "caseStatus": "tempor veniam ut laboris nulla",
+    "caseStatus": "caseStatus",
     "caseStatusDate": "1947-02-14",
     "creationDate": "1965-06-22",
     "additionalField": "this is invalid",
@@ -25,9 +25,9 @@
     ],
     "caseAttachments": [
       {
-        "path": "laborum nisi",
-        "label": "sunt",
-        "documentType": "deserunt laboris anim nisi"
+        "path": "path",
+        "label": "label",
+        "documentType": "documentType"
       }
     ]
 }
