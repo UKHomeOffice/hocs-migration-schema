@@ -93,15 +93,6 @@
         "fullName",
         "correspondentType"
       ]
-    },
-    "primaryCorrespondent": {
-      "description": "Primary correspondent",
-      "type": "array",
-      "items": [
-      {
-        "$ref": "#/definitions/correspondent"
-      }
-      ]
     }
   },
   "description": "All the data for a case",

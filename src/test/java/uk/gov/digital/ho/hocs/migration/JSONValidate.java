@@ -69,7 +69,6 @@ public class JSONValidate {
                 InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-mandatory-fields-primary-correspondent.json")
         ) {
             Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
-            System.out.println(validationMessages.toString());
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.primaryCorrespondent.fullName: is missing but it is required");
             expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
