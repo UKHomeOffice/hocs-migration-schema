@@ -1,6 +1,6 @@
 # hocs-migration-schema
 The JSON schema for the case migration.
-Contains the schemas, examples and validation tests.
+Contains the schemas, [examples](https://github.com/UKHomeOffice/hocs-migration-schema/tree/main/src/test/resources/jsonMigrationExamples) and validation tests.
 
 ## Generating test data
 This is a [useful site for generating JSON from JSON schema](https://json-schema-faker.js.org)
