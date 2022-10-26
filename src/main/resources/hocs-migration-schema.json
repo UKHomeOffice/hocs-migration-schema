@@ -26,12 +26,12 @@
       "description": "A single attachment",
       "type": "object",
       "properties": {
-        "path": {
+        "s3UntrustedUrl": {
           "description": "Path to document in untrusted bucket",
           "type": "string"
         },
-        "label": {
-          "description": "Label",
+        "displayName": {
+          "description": "Original file name",
           "type": "string"
         },
         "documentType": {
