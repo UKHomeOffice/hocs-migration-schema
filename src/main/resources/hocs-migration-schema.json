@@ -93,6 +93,19 @@
         "fullName",
         "correspondentType"
       ]
+    },
+    "additionalCorrespondents": {
+      "description": "Additional correspondents",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/correspondent"
+          }
+        ]
+      }
     }
   },
   "description": "All the data for a case",
@@ -119,6 +132,13 @@
       "oneOf": [
         {
           "$ref": "#/definitions/correspondent"
+        }
+      ]
+    },
+    "additionalCorrespondents": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/additionalCorrespondents"
         }
       ]
     },
