@@ -77,6 +77,41 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void testValidAdditionalCorrespondent() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-additional-correspondent.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void testValidMultipleAdditionalCorrespondent() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-multiple-additional-correspondent.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void testInvalidAdditionalCorrespondentWithMissingMandatoryFields() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-additional-correspondent-missing-mandatory-fields.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.additionalCorrespondents[0].fullName: is missing but it is required");
+            expectedMessages.add("$.additionalCorrespondents[0].correspondentType: is missing but it is required");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
     private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         byte[] jsonBytes = jsonStream.readAllBytes();
         JsonNode json = objectMapper.readTree(jsonBytes);
