@@ -147,6 +147,20 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void testInvalidAttachmentWithMissingMandatoryFields() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-attachment-fields.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.caseAttachments[0].documentPath: is missing but it is required");
+            expectedMessages.add("$.caseAttachments[0].displayName: is missing but it is required");
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
     private boolean checkForValidationMessage (Set<ValidationMessage> validationMessages, Set<String> expectedMessages){
         if (validationMessages.size() != expectedMessages.size()) {
             return false;

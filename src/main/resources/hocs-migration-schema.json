@@ -38,7 +38,11 @@
           "description": "The document type",
           "type": ["string", "null"]
         }
-      }
+      },
+      "required": [
+        "documentPath",
+        "displayName"
+      ]
     },
     "caseAttachments": {
       "description": "Attachments for the case",
