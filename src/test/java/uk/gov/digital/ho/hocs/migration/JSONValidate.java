@@ -122,6 +122,16 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void testValidWithNullFieldsForNonMandatoryValues() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-with-nulls.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
     private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         byte[] jsonBytes = jsonStream.readAllBytes();
         JsonNode json = objectMapper.readTree(jsonBytes);
@@ -134,6 +144,20 @@ public class JSONValidate {
                 System.out.println(validationMessage.getMessage());
             }
             fail();
+        }
+    }
+
+    @Test
+    public void testInvalidAttachmentWithMissingMandatoryFields() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-attachment-fields.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.caseAttachments[0].documentPath: is missing but it is required");
+            expectedMessages.add("$.caseAttachments[0].displayName: is missing but it is required");
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
     }
 

@@ -23,9 +23,6 @@
     ],
     "caseAttachments": [
       {
-        "documentPath": "path",
-        "displayName": "label",
-        "documentType": "documentPath"
       }
     ]
 }
