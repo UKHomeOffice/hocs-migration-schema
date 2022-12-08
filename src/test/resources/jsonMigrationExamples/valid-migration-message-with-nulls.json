@@ -4,15 +4,15 @@
     "primaryCorrespondent": {
       "fullName": "fullName",
       "correspondentType": "COMPLAINANT",
-      "address1": "address1",
-      "address2": "address2",
-      "address3": "address3",
-      "postcode": "postcode",
-      "country": "country",
-      "organisation": "organisation",
+      "address1": null,
+      "address2": null,
+      "address3": null,
+      "postcode": null,
+      "country": null,
+      "organisation": null,
       "telephone": null,
       "email": null,
-      "reference": "reference"
+      "reference": null
     },
     "caseStatus": "caseStatus",
     "caseStatusDate": "1947-02-14",
