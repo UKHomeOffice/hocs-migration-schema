@@ -36,7 +36,7 @@
         },
         "documentType": {
           "description": "The document type",
-          "type": "string"
+          "type": ["string", "null"]
         }
       }
     },
@@ -62,31 +62,31 @@
           "type": "string"
         },
         "address1":  {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "address2": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "address3": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "postcode": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "country": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "organisation": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "telephone": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "email": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "reference": {
-          "type": "string"
+          "type": ["string", "null"]
         }
       },
       "required": [

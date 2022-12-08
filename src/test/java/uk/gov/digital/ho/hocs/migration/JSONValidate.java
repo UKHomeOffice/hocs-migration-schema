@@ -122,6 +122,16 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void testValidWithNullFieldsForNonMandatoryValues() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-with-nulls.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
     private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         byte[] jsonBytes = jsonStream.readAllBytes();
         JsonNode json = objectMapper.readTree(jsonBytes);
