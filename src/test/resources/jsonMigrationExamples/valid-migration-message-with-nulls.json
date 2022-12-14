@@ -25,7 +25,7 @@
       {
         "documentPath": "path",
         "displayName": "label",
-        "documentType": null
+        "documentType": "type"
       }
     ]
 }

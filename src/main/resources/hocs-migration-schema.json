@@ -36,12 +36,13 @@
         },
         "documentType": {
           "description": "The document type",
-          "type": ["string", "null"]
+          "type": "string"
         }
       },
       "required": [
         "documentPath",
-        "displayName"
+        "displayName",
+        "documentType"
       ]
     },
     "caseAttachments": {
