@@ -132,6 +132,25 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void testInvalidWithNullFieldsForMandatoryValues() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-null-mandatory-fields.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.primaryCorrespondent.fullName: null found, string expected");
+            expectedMessages.add("$.primaryCorrespondent.correspondentType: null found, string expected");
+            expectedMessages.add("$.caseAttachments[0].displayName: null found, string expected");
+            expectedMessages.add("$.caseAttachments[0].documentPath: null found, string expected");
+            expectedMessages.add("$.caseAttachments[0].documentType: null found, string expected");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
     private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         byte[] jsonBytes = jsonStream.readAllBytes();
         JsonNode json = objectMapper.readTree(jsonBytes);
@@ -157,6 +176,7 @@ public class JSONValidate {
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.caseAttachments[0].documentPath: is missing but it is required");
             expectedMessages.add("$.caseAttachments[0].displayName: is missing but it is required");
+            expectedMessages.add("$.caseAttachments[0].documentType: is missing but it is required");
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
     }
