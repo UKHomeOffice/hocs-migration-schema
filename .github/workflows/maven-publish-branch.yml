@@ -5,4 +5,4 @@ on:
 
 jobs:
   tag:
-    uses: UKHomeOffice/hocs-github-actions/.github/workflows/maven-publish-branch-gradle.yml@v2
+    uses: UKHomeOffice/sas-github-workflows/.github/workflows/publish-maven-branch.yml@v1
