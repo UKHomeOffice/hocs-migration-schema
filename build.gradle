@@ -19,7 +19,7 @@ targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'com.networknt:json-schema-validator:1.0.77'
+    testImplementation 'com.networknt:json-schema-validator:1.0.78'
     testImplementation 'com.jayway.jsonpath:json-path:2.7.0'
 }
 
