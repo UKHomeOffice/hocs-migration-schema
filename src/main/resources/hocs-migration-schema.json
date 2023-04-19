@@ -140,6 +140,9 @@
         }
       ]
     },
+    "primaryTopic": {
+      "type":"string"
+    },
     "additionalCorrespondents": {
       "oneOf": [
         {
