@@ -43,6 +43,9 @@ public class JSONValidate {
             expectedMessages.add("$.caseData[1].third: is not defined in the schema and the schema does not allow additional properties");
             expectedMessages.add("$.caseData[2].forth: is not defined in the schema and the schema does not allow additional properties");
             expectedMessages.add("$.additionalField: is not defined in the schema and the schema does not allow additional properties");
+            expectedMessages.add("$.caseData[0]: should be valid to one and only one schema, but 0 are valid");
+            expectedMessages.add("$.caseData[1]: should be valid to one and only one schema, but 0 are valid");
+            expectedMessages.add("$.caseData[2]: should be valid to one and only one schema, but 0 are valid");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
@@ -72,6 +75,7 @@ public class JSONValidate {
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.primaryCorrespondent.fullName: is missing but it is required");
             expectedMessages.add("$.primaryCorrespondent.correspondentType: is missing but it is required");
+            expectedMessages.add("$.primaryCorrespondent: should be valid to one and only one schema, but 0 are valid");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
@@ -107,6 +111,8 @@ public class JSONValidate {
             Set<String> expectedMessages = new HashSet<>();
             expectedMessages.add("$.additionalCorrespondents[0].fullName: is missing but it is required");
             expectedMessages.add("$.additionalCorrespondents[0].correspondentType: is missing but it is required");
+            expectedMessages.add("$.additionalCorrespondents: should be valid to one and only one schema, but 0 are valid");
+            expectedMessages.add("$.additionalCorrespondents[0]: should be valid to one and only one schema, but 0 are valid");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
@@ -146,6 +152,8 @@ public class JSONValidate {
             expectedMessages.add("$.caseAttachments[0].displayName: null found, string expected");
             expectedMessages.add("$.caseAttachments[0].documentPath: null found, string expected");
             expectedMessages.add("$.caseAttachments[0].documentType: null found, string expected");
+            expectedMessages.add("$.primaryCorrespondent: should be valid to one and only one schema, but 0 are valid");
+            expectedMessages.add("$.caseAttachments[0]: should be valid to one and only one schema, but 0 are valid");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
@@ -177,6 +185,7 @@ public class JSONValidate {
             expectedMessages.add("$.caseAttachments[0].documentPath: is missing but it is required");
             expectedMessages.add("$.caseAttachments[0].displayName: is missing but it is required");
             expectedMessages.add("$.caseAttachments[0].documentType: is missing but it is required");
+            expectedMessages.add("$.caseAttachments[0]: should be valid to one and only one schema, but 0 are valid");
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
         }
     }
