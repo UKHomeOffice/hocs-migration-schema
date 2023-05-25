@@ -139,6 +139,16 @@ public class JSONValidate {
     }
 
     @Test
+    public void testValidWithNoDeadlineDateNonMandatoryField() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-no-optional-deadline-date.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
     public void testInvalidWithNullFieldsForMandatoryValues() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
@@ -156,6 +166,22 @@ public class JSONValidate {
             expectedMessages.add("$.caseAttachments[0]: should be valid to one and only one schema, but 0 are valid");
 
             assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    @Test
+    public void testInvalidWithMissingDateReceivedMandatoryField() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/invalid-migration-message-missing-mandatory-field-date-received.json")
+        ) {
+            Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+
+            Set<String> expectedMessages = new HashSet<>();
+            expectedMessages.add("$.dateReceived: is missing but it is required");
+
+            assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+
         }
     }
 

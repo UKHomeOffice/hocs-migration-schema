@@ -17,6 +17,8 @@
     "caseStatus": "caseStatus",
     "caseStatusDate": "1947-02-14",
     "creationDate": "1965-06-22",
+    "dateReceived": "1945-06-22",
+    "deadlineDate": "2000-06-22",
     "caseData": [
       {"name": "type", "value": "cms"},
       {"name": "creationDate", "value": "01/07/2022"}
