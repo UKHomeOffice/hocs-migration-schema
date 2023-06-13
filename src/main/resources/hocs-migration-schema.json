@@ -113,7 +113,6 @@
       }
     }
   },
-  "description": "All the data for a case",
   "type": "object",
   "required": [
     "caseType",
@@ -180,6 +179,12 @@
     "deadlineDate": {
       "type": "string",
       "format": "date"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }

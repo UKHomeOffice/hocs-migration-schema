@@ -149,6 +149,16 @@ public class JSONValidate {
     }
 
     @Test
+    public void testValidWithTopics() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonMigrationExamples/valid-migration-message-with-topics.json")
+        ) {
+            testSchemaValid(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
     public void testInvalidWithNullFieldsForMandatoryValues() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("hocs-migration-schema.json");
