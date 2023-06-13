@@ -18,16 +18,17 @@
     "caseStatusDate": "1947-02-14",
     "creationDate": "1965-06-22",
     "additionalField": "this is invalid",
+    "dateReceived": "1945-06-22",
     "caseData": [
-      {"name": "type", "value": 1600},
-      {"name": "creationDate", "value": "01/07/2022", "third": "not allowed"},
-      {"forth":  "not allowed"}
-    ],
-    "caseAttachments": [
-      {
-        "documentPath": "path",
-        "displayName": "label",
-        "documentType": "documentPath"
-      }
-    ]
+        {"name": "type", "value": 1600},
+        {"name": "creationDate", "value": "01/07/2022", "third": "not allowed"},
+        {"forth":  "not allowed"}
+      ],
+      "caseAttachments": [
+        {
+          "documentPath": "path",
+          "displayName": "label",
+          "documentType": "documentPath"
+        }
+      ]
 }
